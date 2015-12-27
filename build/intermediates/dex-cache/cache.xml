@@ -9,11 +9,11 @@
         <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-2d6ea06224f28aa66a3f05057a16e0384b24bf81.jar" />
     </item>
     <item
-        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-d5138ca1b169a8ba5adccef9ee201aaba73137d5.jar" />
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-c8e240842640439d5aaa26ce94346513ac54ec63.jar" />
     </item>
     <item
         jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
@@ -21,6 +21,20 @@
         revision="23.0.2"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
         <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-a80722cbca991f14fc635ac453bd67e390553067.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/glide-3.6.1-57942c57d5eb843ecd8ad22557a3e537823b9f8f.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-d5138ca1b169a8ba5adccef9ee201aaba73137d5.jar" />
     </item>
     <item
         jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"

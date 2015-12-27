@@ -1,6 +1,45 @@
 <resources>
     <string name="app_name">Oferfast</string>
+    <string name="oferta_edit_title">Editar Oferta</string>
+    <!-- Textos Login -->
     <string name="user_input_login">Usuario</string>
     <string name="pass_input_login">Contraseña</string>
     <string name="title_activity_login">Iniciar Sesión</string>
+    <string name="no_acount_login">¿No tienes Cuenta?, Regístrate</string>
+    <string name="missing_value_login">Debes llenar todos los campos</string>
+    <!--Textos de registro-->
+    <string name="user_input_reg">Nombre de Usuario</string>
+    <string name="email_input_reg">Email</string>
+    <string name="pass_input_reg">Contraseña</string>
+    <string name="rpass_input_reg">Repita la Contraseña</string>
+    <string name="reg_btn">Registrarse</string>
+    <string name="hav_acount_reg">¿Ya tienes Cuenta?, Inicia Sesión</string>
+    <string name="title_activity_registro">Registro</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+
+    <string name="delete">-</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- textos para editar-->
+    <string name="edit_title_hint">Titulo</string>
+    <string name="edit_price_hint">Precio</string>
+    <string name="edit_desc_hint">Descripción</string>
+    <string name="edit_ok_btn">Aceptar</string>
+    <string name="edit_cance_btn">Cancelar</string>
+
 </resources>
