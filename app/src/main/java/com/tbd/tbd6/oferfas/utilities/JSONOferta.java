@@ -1,8 +1,8 @@
 package com.tbd.tbd6.oferfas.utilities;
 
-import android.content.Intent;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,12 +12,13 @@ import java.util.ArrayList;
  * Created by fireness on 28-12-15.
  */
 public class JSONOferta {
-    JSONObject jo;
+    private JSONObject jo;
     private String titulo;
     private String precio;
     private String descipcion;
     private Double lat;
     private Double lon;
+    private int id;
 
     ArrayList<String> tags;
 
@@ -33,7 +34,7 @@ public class JSONOferta {
 
     @Override
     public String toString(){
-        return jo.toString();
+        return this.jo.toString();
     }
 
     public String getTitulo() {
@@ -42,7 +43,7 @@ public class JSONOferta {
 
     public void setTitulo(String titulo) throws JSONException {
         this.titulo = titulo;
-        this.jo.put("title", this.titulo);
+        this.getJo().put("title", this.titulo);
     }
 
     public String getPrecio() {
@@ -51,7 +52,7 @@ public class JSONOferta {
 
     public void setPrecio(String precio) throws JSONException {
         this.precio = precio;
-        this.jo.put("price", Integer.parseInt(this.precio));
+        this.getJo().put("price", Integer.parseInt(this.precio));
     }
 
     public String getDescipcion() {
@@ -60,17 +61,13 @@ public class JSONOferta {
 
     public void setDescipcion(String descipcion) throws JSONException {
         this.descipcion = descipcion;
-        this.jo.put("description", this.descipcion);
+        this.getJo().put("description", this.descipcion);
         TagExtractor te = new TagExtractor(descipcion);
         this.tags = te.extract();
         Log.i("TBD_","tag:"+te.extractString());
-        //if(jo.has("tags"))
-        //    this.jo.remove("tags");//quitamos los tag para luego remplazarlos
-        for(String tag:this.tags) {
-
-            this.jo.accumulate("tags", tag);
-        }
-
+        JSONArray arTag =new JSONArray();
+        for(String tag:tags) arTag.put(tag);
+        this.getJo().put("tags", arTag);
     }
 
     public Double getLat() {
@@ -79,7 +76,7 @@ public class JSONOferta {
 
     public void setLat(Double lat) throws JSONException {
         this.lat = lat;
-        this.jo.put("ubicacionLat", lat);
+        this.getJo().put("ubicationLat", lat);
     }
 
     public Double getLon() {
@@ -88,6 +85,19 @@ public class JSONOferta {
 
     public void setLon(Double lon) throws JSONException {
         this.lon = lon;
-        this.jo.put("ubicacionLon", lon);
+        this.getJo().put("ubicationLon", lon);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) throws JSONException {
+        this.id = id;
+        this.getJo().put("ofertaId", id);
+    }
+
+    public JSONObject getJo() {
+        return jo;
     }
 }

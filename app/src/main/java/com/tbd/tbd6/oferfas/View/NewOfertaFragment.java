@@ -3,6 +3,7 @@ package com.tbd.tbd6.oferfas.View;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -21,14 +22,24 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.tbd.tbd6.oferfas.R;
 import com.tbd.tbd6.oferfas.utilities.JSONOferta;
+import com.tbd.tbd6.oferfas.utilities.Sesion;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import pl.charmas.android.reactivelocation.ReactiveLocationProvider;
 import rx.functions.Action1;
 
@@ -38,13 +49,14 @@ import rx.functions.Action1;
 public class NewOfertaFragment extends Fragment {
 
     View v;
+    Context c;
     GridLayout capturas;
     ArrayList<Uri> imagenes;
     Location last;
     EditText titulo;
     EditText precio;
     EditText desc;
-    Button aceptar;
+    @Bind(R.id.btnAceptar) Button aceptar;
     Button cancelar;
 
     int imageCount=0;
@@ -70,50 +82,17 @@ public class NewOfertaFragment extends Fragment {
                last=location;
             }
         });
-        this.v=inflater.inflate(R.layout.fragment_new_oferta, container, false);
+        v=inflater.inflate(R.layout.fragment_new_oferta, container, false);
+        c = getContext();
+        ButterKnife.bind(this, v);
         // Inflate the layout for this fragment_new_oferta
         capturas =(GridLayout) v.findViewById(R.id.glCapturas);
         capture = (Button) v.findViewById(R.id.btnCapture);
         titulo = (EditText) v.findViewById(R.id.etTitulo);
         precio = (EditText) v.findViewById(R.id.etPrecio);
         desc = (EditText) v.findViewById(R.id.etDesc);
-        aceptar = (Button) v.findViewById(R.id.btnAceptar);
         cancelar =(Button) v.findViewById(R.id.btnCancelar);
-        aceptar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View viu) {
-                if(titulo.getText().length()>0
-                        &&precio.getText().length()>0 &&desc.getText().length()>0){
-                    if(imageCount==0){
-                        Toast.makeText(getContext(),"Debes seleccionar al menos una foto",Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    //TODO: llamada REST para crear una publicacion
-                    try {
 
-                        Log.i("TBD_", "location:" + last);
-                        JSONOferta jo = new JSONOferta(
-                                desc.getText().toString(),
-                                titulo.getText().toString(),
-                                precio.getText().toString(),
-                                last.getLatitude(),
-                                last.getLongitude());
-                        Toast.makeText(getContext(),"Cargando publicacion...",Toast.LENGTH_LONG).show();
-                        Log.i("TBD_","json:"+jo.toString());
-                        //TODO: llamada REST para subir imagenes
-                        destroyAll();
-                    } catch (JSONException e) {
-                        Toast.makeText(getContext(),"Error al cargar Oferta",Toast.LENGTH_LONG).show();
-                        Log.e("TBD_","error:"+e.getMessage());
-                        e.printStackTrace();
-                    }
-
-
-
-                }
-
-            }
-        });
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,6 +180,63 @@ public class NewOfertaFragment extends Fragment {
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
             return true;
+        }
+    }
+    @OnClick(R.id.btnAceptar)
+    public void publicar(Button viu){
+        if(titulo.getText().length()>0
+                &&precio.getText().length()>0 &&desc.getText().length()>0){
+            if(imageCount==0){
+                Toast.makeText(getContext(),
+                        "Debes seleccionar al menos una foto",Toast.LENGTH_SHORT).show();
+                return;
+            }
+            try {
+                JSONOferta jo = new JSONOferta(
+                        desc.getText().toString(),
+                        titulo.getText().toString(),
+                        precio.getText().toString(),
+                        last.getLatitude(),
+                        last.getLongitude());
+                Toast.makeText(getContext(),"Cargando publicacion...",Toast.LENGTH_LONG).show();
+
+                JSONObject usuario = Sesion.getSession().getJSON("usuario");
+
+                String url = String.format(getResources().getString(R.string.url_s),
+                        "ofertas");
+                JSONObject json = jo.getJo();
+                json.put("usuarioId",usuario.getInt("usuarioId"));
+                json.put("imagesNumber",0);
+                json.put("visibleOferta",1);
+                Log.i("TBD_","json:"+json);
+                JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                        url,
+                        json,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Log.i("TBD_",response.toString());
+                                destroyAll();
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(c,"Error al conectar al servidor",Toast.LENGTH_SHORT).show();
+                                Log.e("TBD_","Error ",error);
+                            }
+                        });
+                Volley.newRequestQueue(c).add(jsonObjReq);
+                //TODO: llamada REST para subir imagenes
+
+            } catch (JSONException e) {
+                Toast.makeText(getContext(),"Error al cargar Oferta",Toast.LENGTH_LONG).show();
+                Log.e("TBD_","error:",e);
+                e.printStackTrace();
+            }
+
+
+
         }
     }
 

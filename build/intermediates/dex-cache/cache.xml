@@ -2,46 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-c8e240842640439d5aaa26ce94346513ac54ec63.jar" />
-    </item>
-    <item
-        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-a80722cbca991f14fc635ac453bd67e390553067.jar" />
-    </item>
-    <item
-        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="82825756edeeb3b56b15e73b2edd56e93da5a444">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-879cc2f36cd0d84072a6ff87bc72ff330d290068.jar" />
-    </item>
-    <item
-        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-d5138ca1b169a8ba5adccef9ee201aaba73137d5.jar" />
-    </item>
-    <item
-        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="2a7e47da654546f9457deb6132364f1bf33a1857">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-3833067cde55c6e9b2428c6029c195a61ac35598.jar" />
-    </item>
-    <item
-        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-1b406f64346cefc7f0f09c32f599a87e73780bd1.jar" />
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/library-1.0.19-694a62cb253dc2b789438176ba6ed494e96120ff.jar" />
     </item>
     <item
         jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
@@ -51,18 +16,11 @@
         <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-2d6ea06224f28aa66a3f05057a16e0384b24bf81.jar" />
     </item>
     <item
-        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.1.0/jars/classes.jar"
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.3.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="3aed37c38c56679602255dd72ef356da5d327cda">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-91999857402c0676230457e827b126a04b489047.jar" />
-    </item>
-    <item
-        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/898f9ab61e2a23afd615f0b0389478bec86f49f9/rxjava-1.0.14.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="898f9ab61e2a23afd615f0b0389478bec86f49f9">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/rxjava-1.0.14-298b83075e7fae21acb15d1aa29d51842ced0979.jar" />
+        sha1="77f9593d979f4347344be233bd0d888315f79517">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-e34df17523e7a5a3a50c7debdc3687eac4d2692f.jar" />
     </item>
     <item
         jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
@@ -72,11 +30,25 @@
         <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/glide-3.6.1-57942c57d5eb843ecd8ad22557a3e537823b9f8f.jar" />
     </item>
     <item
-        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/pl.charmas.android/android-reactive-location/0.8/jars/classes.jar"
+        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/898f9ab61e2a23afd615f0b0389478bec86f49f9/rxjava-1.0.14.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="d58eb5f287f9b555b402055d43902a94c2b9e542">
-        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-1975d4b75a091778927d55c26a600e8fcab19cec.jar" />
+        sha1="898f9ab61e2a23afd615f0b0389478bec86f49f9">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/rxjava-1.0.14-298b83075e7fae21acb15d1aa29d51842ced0979.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-2e5be0ab1aa6dc72b13eef93c5329279e2a48f9a.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-930a1396d05c3dfc7fbe2f9006858bc788c9bb3c.jar" />
     </item>
     <item
         jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
@@ -86,11 +58,74 @@
         <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-8ed0843eeea47d0565ab88354fc2e7a374069cd2.jar" />
     </item>
     <item
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="345a1b5cf5b144ce18ba6962bc66a7e2f26c1c1b">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-d54624826abab180b14a9bfd08baa4ab91879d21.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.cloudinary/cloudinary-android/1.2.2/2026ce27a1f4afcc0488e3bc3a965ca9cdf9efe9/cloudinary-android-1.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2026ce27a1f4afcc0488e3bc3a965ca9cdf9efe9">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/cloudinary-android-1.2.2-2d6993fa2c2fb852ee3e5628071dc68132f60866.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/pl.charmas.android/android-reactive-location/0.8/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d58eb5f287f9b555b402055d43902a94c2b9e542">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-1975d4b75a091778927d55c26a600e8fcab19cec.jar" />
+    </item>
+    <item
         jar="/Applications/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="92e3fc113ec3ee36b64603a38857b95700025633">
         <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0-79cc02f3cd2fc9525765c657614a9676aa767f4f.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6d9ed9a288364688e7fcf6704776284dac1eb42e">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-2e5c9e319267f9ab96a50c46f4adc281f6fedb24.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-a80722cbca991f14fc635ac453bd67e390553067.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="01a90bbb9495a8bbf6f3cfdf12f1b35caaa9524b">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-6ca3f0a502274f99e74872f80743c0d5529a0bf7.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/butterknife-7.0.1-cecc4b36bfe518c76b82d6981d9fc4fa1e0f8a98.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/classes-d5138ca1b169a8ba5adccef9ee201aaba73137d5.jar" />
+    </item>
+    <item
+        jar="/Users/fireness/.gradle/caches/modules-2/files-2.1/com.cloudinary/cloudinary-core/1.2.2/1f9cdf1e3635c9a728c71bd7aaf58e306d001465/cloudinary-core-1.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1f9cdf1e3635c9a728c71bd7aaf58e306d001465">
+        <dex dex="/Users/fireness/GitHub/Oferfast_Android/app/build/intermediates/pre-dexed/debug/cloudinary-core-1.2.2-6867c3bc809889652a600ab3cd6f728fc437496b.jar" />
     </item>
 
 </items>

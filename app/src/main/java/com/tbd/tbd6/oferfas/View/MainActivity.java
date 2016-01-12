@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,16 +56,15 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
+        String from;
+        try {
+            from = getIntent().getExtras().getString("from");
+        }catch(Exception e){
+            from ="root";
+        }
+        Log.i("TBD_","from : "+from);
+        if(from.compareTo("registro")==0)
+            mViewPager.setCurrentItem(2);
     }
 
 
@@ -109,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
                 return MisOfertasFragment.newInstance();
             if(position==1)
                 return new NewOfertaFragment();
+            if(position==2)
+                return ProfileFragment.newInstance();
             return PlaceholderFragment.newInstance(position + 1);
         }
 

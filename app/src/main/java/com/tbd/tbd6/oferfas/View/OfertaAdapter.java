@@ -2,24 +2,23 @@ package com.tbd.tbd6.oferfas.View;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tbd.tbd6.oferfas.Models.Oferta;
 import com.tbd.tbd6.oferfas.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by fireness on 27-12-15.
@@ -92,7 +91,9 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
 
         if(data.size()<=0)
         {
-            holder.titulo.setText("No Data");
+            holder.titulo.setText("Aún no subes ningúna Oferta");
+            holder.desc.setText("Intenta subir algúnas");
+            holder.fecha.setText("");
 
         }
         else
@@ -137,9 +138,9 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
         @Override
         public void onClick(View arg0) {
             Log.i("TBD_","click on :"+((Oferta)getItem(mPosition)).getOferta_id());
-            //TODO:Intent a edit oferta
-            Intent myIntent = new Intent(activity, EditarOferta.class);
-            myIntent.putExtra("oferta_id",((Oferta)getItem(mPosition)).getOferta_id());
+            //TO DO:Intent a edit oferta
+            Intent myIntent = new Intent(activity, EditarOfertaActivity.class);
+            myIntent.putExtra("oferta_id", ((Oferta) getItem(mPosition)).getOferta_id());
             activity.startActivity(myIntent);
         }
     }
@@ -154,7 +155,40 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
         public boolean onLongClick(View v) {
             Log.i("TBD_","mostrando Dialog...");
             //TODO:Mostrar Dialogo de editar y weas
-            //((CheckBox)v.findViewById(R.id.cbSelected)).setVisibility(View.VISIBLE);
+            CharSequence colors[] = new CharSequence[] {"Editar","Eliminar"};
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity,4);
+            builder.setTitle("Opciones de Oferta");
+            builder.setItems(colors, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which){
+                        case 0:
+                            Intent myIntent = new Intent(activity, EditarOfertaActivity.class);
+                            myIntent.putExtra("oferta_id", ((Oferta) getItem(mPosition)).getOferta_id());
+                            activity.startActivity(myIntent);
+                            break;
+                        case 1:
+                            new AlertDialog.Builder(activity,4)
+                                .setTitle("Eliminar Oferta")
+                                .setMessage("¿Seguro que desea eliminar permanentemente la oferta?")
+                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //TODO: REST para eliminar la oferta en la posicion mPosition
+                                        Toast.makeText(activity, "Eliminando Oferta...", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+                            break;
+                    }
+                }
+            });
+            builder.show();
             return true;
         }
     }

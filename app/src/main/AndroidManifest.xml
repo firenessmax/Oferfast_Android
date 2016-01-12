@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.tbd.tbd6.oferfas">
+    package="com.tbd.tbd6.oferfas" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
@@ -28,35 +30,32 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".View.HomeActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name=".View.RegistroActivity"
-            android:label="@string/title_activity_registro"
-            android:parentActivityName=".View.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".View.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".View.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
-        <activity
-            android:name=".View.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.EditarOferta"
-            android:label="@string/oferta_edit_title" >
+
+
+        <activity
+            android:name=".View.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".View.EditarOfertaActivity"
+            android:label="@string/oferta_edit_title"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name=".View.RegistroActivity"
+            android:label="@string/oferta_reg_title"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
     </application>
 
