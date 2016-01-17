@@ -74,11 +74,11 @@ public class ProfileFragment extends Fragment  {
         try {
             U= s.getJSON("usuario");
             username.setText("@"+U.getString("username"));
-            //TODO: get numero de ofertas
-            nofertas.setText(""+0 +(int)(Math.random()*999) );
-            nseguidores.setText("" + 0 + (int) (Math.random() * 999));
-            nseguidos.setText("" + 0 + (int) (Math.random() * 999));
+            nofertas.setText("...");
+            nseguidores.setText("" + (int) (Math.random() * 999));
+            nseguidos.setText("" + (int) (Math.random() * 999));
             String fpUrl = U.getString("urlProfileThumbnail");
+            getAndSetCantidadOfertas();
             if(fpUrl.compareTo("no hay thumb")==0) fpUrl= "http://cdn3.rd.io/user/no-user-image-square.jpg";
             Glide.with(getContext())
                     .load(fpUrl)
@@ -164,6 +164,35 @@ public class ProfileFragment extends Fragment  {
         }
 
     }
+    public void getAndSetCantidadOfertas(){
+        try {
+            JSONObject usuario = s.getJSON("usuario");
+            String url = String.format(getResources().getString(R.string.url_s_d_s),"usuarios",usuario.getInt("usuarioId"),"cantidad");
+            JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                    url,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                nofertas.setText("" + response.getInt("cantidad"));
+                            } catch (JSONException e) {
+                                Log.e("TBD_","error del json al actualizar contraseña",e);
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("TBD_","error al intentar obtener ofertas",error);
+                            Toast.makeText(c,"Error al conectar al servidor",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            Volley.newRequestQueue(getActivity()).add(jsonObjReq);
+        } catch (JSONException e) {
+            Log.e("TBD_","Error al obtener las ofertas",e);
+        }
+    }
+
 
 
 

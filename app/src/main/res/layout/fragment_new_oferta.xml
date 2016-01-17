@@ -21,17 +21,34 @@
                 android:id="@+id/glCapturas"
                 android:columnCount="4"
                 android:background="#939393"
-                android:minHeight="80dp">
+                android:minHeight="20dp">
 
             </GridLayout>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/new_select_conten"
-                android:id="@+id/btnCapture"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@android:color/black" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:weightSum="1"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ibFromCamera"
+                    android:src="@drawable/ic_camera_alt"
+                    android:theme="@style/TextAppearance.AppCompat.Button"
+                    android:backgroundTint="@android:color/holo_green_dark" />
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ibFromGallery"
+                    android:theme="@style/TextAppearance.AppCompat.Button"
+                    android:src="@drawable/ic_insert_photo"
+                    android:backgroundTint="@android:color/holo_blue_dark" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"

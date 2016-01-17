@@ -1,7 +1,5 @@
 package com.tbd.tbd6.oferfas.View;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,7 +12,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.tbd.tbd6.oferfas.Models.Oferta;
 import com.tbd.tbd6.oferfas.R;
@@ -25,7 +22,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MisOfertasFragment extends Fragment {
@@ -76,7 +72,7 @@ public class MisOfertasFragment extends Fragment {
                         try {
 
                             for(int i =0;i<max;i++){
-                                JSONObject jo = response.getJSONObject(i);
+                                JSONObject jo = response.getJSONObject(response.length()-i-1);
                                 Oferta oferta = new Oferta();
                                 oferta.setTitle(jo.getString("title"));
                                 oferta.setDescription(jo.getString("description"));
@@ -90,7 +86,7 @@ public class MisOfertasFragment extends Fragment {
                         } catch (JSONException e) {
                             Log.e("TBD_", "Error al obtener ofertas", e);
                         }
-                        OfertaAdapter oa= new OfertaAdapter(getActivity(),al, v.getResources());
+                        MisOfertaAdapter oa= new MisOfertaAdapter(getActivity(),al, v.getResources());
                         Log.i("TBD_", lvPublicaciones.toString());
                         lvPublicaciones.setAdapter(oa);
 
@@ -110,12 +106,3 @@ public class MisOfertasFragment extends Fragment {
 
 
 }
-/*
-ArrayList<Oferta> al=new ArrayList<Oferta>();
-        for(int i =0;i<10;i++){
-            al.add(new Oferta());
-        }
-        OfertaAdapter oa= new OfertaAdapter(getActivity(),al, v.getResources());
-        Log.i("TBD_", lvPublicaciones.toString());
-        lvPublicaciones.setAdapter(oa);
-* */

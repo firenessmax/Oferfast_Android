@@ -60,8 +60,6 @@
     <string name="et_hint_registro_pass">Contraseña</string>
     <string name="et_hint_registro_rpass">Repite Contraseña</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_Ofertas">Ofertas</string>
     <string name="txt_seguidores">Seguidores</string>
     <string name="txt_seguidos">Seguidos</string>

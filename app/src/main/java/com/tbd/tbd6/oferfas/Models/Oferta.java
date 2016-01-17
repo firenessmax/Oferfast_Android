@@ -18,7 +18,7 @@ public class Oferta {
     //ubicacion
     private Double loc_lon;
     private Double loc_lat;
-    //TODO:Revisar como están llegando las fotos y etiquetas.
+
     public Oferta(){
         this.setOferta_id(0);
         this.setUser_id(0);
@@ -32,22 +32,6 @@ public class Oferta {
         this.setLoc_lon(0.0);
         this.setLoc_lat(0.0);
     }
-    public Oferta(int id){
-        //TODO:GET oferta desde servicio
-        this.setOferta_id(id);
-        this.setUser_id(0);
-
-        this.setDate(new Date());
-
-        this.setTitle("Oferta de Ejemplo desde REST");
-        this.setDescription("Descripcion mas larga de la oferta del ejemplo");
-        this.setPrice(10000);
-
-        this.setLoc_lon(0.0);
-        this.setLoc_lat(0.0);
-    }
-
-
     public int getOferta_id() {
         return oferta_id;
     }

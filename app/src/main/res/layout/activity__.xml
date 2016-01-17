@@ -7,6 +7,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".HomeActivity"
     android:background="@color/colorPrimary"
     android:windowSoftInputMode="adjustPan"
+    android:fitsSystemWindows="true"
     android:id="@+id/mainLayout">
 
     <LinearLayout
@@ -64,7 +65,8 @@
             android:hint="@string/user_input_login"
             style="@style/InputLogin"
             android:autoText="false"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:text="fireness" />
 
         <EditText
             android:layout_width="match_parent"
@@ -74,7 +76,8 @@
             android:id="@+id/etPass_login"
             android:layout_gravity="center_horizontal"
             android:hint="@string/pass_input_login"
-            style="@style/InputLogin" />
+            style="@style/InputLogin"
+            android:text="pass" />
 
         <Button
             android:layout_width="match_parent"

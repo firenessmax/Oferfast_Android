@@ -210,7 +210,7 @@ public class EditarOfertaActivity extends AppCompatActivity {
                                         }
 
                                 });
-                            Log.i("TBD_","url [213] : "+url);
+                            Log.i("TBD_","json [213]"+url);
                             Volley.newRequestQueue(activity).add(jsonObjReq);
                         } catch (JSONException e) {
                             e.printStackTrace();

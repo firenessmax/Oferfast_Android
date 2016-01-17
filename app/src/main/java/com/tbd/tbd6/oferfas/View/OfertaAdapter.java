@@ -1,21 +1,30 @@
 package com.tbd.tbd6.oferfas.View;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.tbd.tbd6.oferfas.Models.Oferta;
 import com.tbd.tbd6.oferfas.R;
+
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,7 +32,7 @@ import java.util.ArrayList;
 /**
  * Created by fireness on 27-12-15.
  */
-public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener {
+public class OfertaAdapter extends BaseAdapter implements View.OnClickListener {
     /*********** Declare Used Variables *********/
     private Activity activity;
     private ArrayList data;
@@ -33,7 +42,7 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
 
     int i=0;
 
-    public OfertaAdapter(Activity a, ArrayList d,Resources resLocal) {
+    public OfertaAdapter(Activity a, ArrayList d, Resources resLocal) {
 
         activity = a;
         data=d;
@@ -63,7 +72,15 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
 
         public TextView titulo;
         public TextView desc;
-        public TextView fecha;
+        public TextView precio;
+        public TextView username;
+
+        public ImageView main;
+        public ImageView profile;
+
+        public ImageButton like;
+        public ImageButton unlike;
+        public ImageButton more;
 
     }
 
@@ -74,14 +91,22 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
 
         if(convertView==null){
 
-            vi = inflater.inflate(R.layout.oferta_item, null);
+            vi = inflater.inflate(R.layout.oferta_item_card, null);
 
             /****** View Holder Object to contain tabitem.xml file elements ******/
 
             holder = new ViewHolder();
-            holder.titulo = (TextView) vi.findViewById(R.id.titulo);
-            holder.desc=(TextView)vi.findViewById(R.id.desc);
-            holder.fecha=(TextView)vi.findViewById(R.id.fecha);
+            holder.titulo = (TextView) vi.findViewById(R.id.tvTitle);
+            holder.desc = (TextView)vi.findViewById(R.id.tvDescription);
+            holder.precio = (TextView)vi.findViewById(R.id.tvPrice);
+            holder.username = (TextView) vi.findViewById(R.id.tvUsername);
+
+            holder.main =(ImageView)vi.findViewById(R.id.ivMainPic);
+            holder.profile = (ImageView) vi.findViewById(R.id.ivProfilePic);
+
+            holder.like = (ImageButton)vi.findViewById(R.id.ibLike);
+            holder.unlike = (ImageButton)vi.findViewById(R.id.ibUnlike);
+            holder.more = (ImageButton) vi.findViewById(R.id.ibOption);
 
             /************  Set holder with LayoutInflater ************/
             vi.setTag( holder );
@@ -93,7 +118,7 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
         {
             holder.titulo.setText("Aún no subes ningúna Oferta");
             holder.desc.setText("Intenta subir algúnas");
-            holder.fecha.setText("");
+            holder.precio.setText("");
 
         }
         else
@@ -107,12 +132,10 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
             holder.titulo.setText(((tempValues.getTitle().length()>40)?
                     tempValues.getTitle().substring(0,40)+"...":
                     tempValues.getTitle() ));
-            holder.desc.setText( ((tempValues.getDescription().length() > 80)?
-                    tempValues.getDescription().substring(0,80)+"..." :
+            holder.desc.setText( ((tempValues.getDescription().length() > 140)?
+                    tempValues.getDescription().substring(0,140)+"..." :
                     tempValues.getDescription()));
-            holder.fecha.setText(sm.format(tempValues.getDate()) );
-            //holder.text1.setText( tempValues.getUrl() );
-
+            holder.precio.setText(sm.format(tempValues.getDate()) );
 
             /******** Set Item Click Listner for LayoutInflater for each row *******/
 
@@ -138,7 +161,6 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
         @Override
         public void onClick(View arg0) {
             Log.i("TBD_","click on :"+((Oferta)getItem(mPosition)).getOferta_id());
-            //TO DO:Intent a edit oferta
             Intent myIntent = new Intent(activity, EditarOfertaActivity.class);
             myIntent.putExtra("oferta_id", ((Oferta) getItem(mPosition)).getOferta_id());
             activity.startActivity(myIntent);
@@ -156,7 +178,6 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
             Log.i("TBD_","mostrando Dialog...");
             //TODO:Mostrar Dialogo de editar y weas
             CharSequence colors[] = new CharSequence[] {"Editar","Eliminar"};
-
             AlertDialog.Builder builder = new AlertDialog.Builder(activity,4);
             builder.setTitle("Opciones de Oferta");
             builder.setItems(colors, new DialogInterface.OnClickListener() {
@@ -174,7 +195,24 @@ public class OfertaAdapter  extends BaseAdapter implements View.OnClickListener 
                                 .setMessage("¿Seguro que desea eliminar permanentemente la oferta?")
                                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        //TODO: REST para eliminar la oferta en la posicion mPosition
+
+                                        String url = String.format(activity.getResources().getString(R.string.url_s_d_s),"oferta",((Oferta) getItem(mPosition)).getOferta_id(),"del");
+                                        Log.i("TBD_","delete_url:"+url);
+                                        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                                                url,
+                                                new Response.Listener<JSONObject>() {
+                                                    @Override
+                                                    public void onResponse(JSONObject response) {
+                                                            Log.e("TBD_", "response: "+response);
+                                                    }
+                                                },
+                                                new Response.ErrorListener() {
+                                                    @Override
+                                                    public void onErrorResponse(VolleyError error) {
+                                                        Log.e("TBD_","164 : error al Eliminar oferta",error);
+                                                    }
+                                                });
+                                        Volley.newRequestQueue(activity).add(jsonObjReq);
                                         Toast.makeText(activity, "Eliminando Oferta...", Toast.LENGTH_SHORT).show();
                                     }
                                 })
